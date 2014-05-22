@@ -82,6 +82,8 @@ class Issue < ActiveRecord::Base
     includes(:status).where("#{IssueStatus.table_name}.is_closed = ?", is_closed)
   }
 
+  scope :not_solve, lambda { where("status_id != 3") }
+
   scope :recently_updated, lambda { order("#{Issue.table_name}.updated_on DESC") }
   scope :on_active_project, lambda {
     includes(:status, :project, :tracker).where("#{Project.table_name}.status = ?", Project::STATUS_ACTIVE)
