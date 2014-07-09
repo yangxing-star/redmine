@@ -1,0 +1,2 @@
+#!/bin/sh
+curl "http://localhost/sys/fetch_changesets?key=XegbKj4EarU1YMor5S1N&id=icomment"
